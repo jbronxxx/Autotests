@@ -1,7 +1,8 @@
-﻿using Core.Elements;
+﻿using Core.BusinessLogic.ElementLogic;
+using Core.Models.WebElements;
 using OpenQA.Selenium;
 
-namespace Models.Pages.HomePage
+namespace Core.Models.Pages.HomePage
 {
     public class HomePageNavigationBar : ElementBase {
 		public HomePageNavigationBar(IWebElement webElement, By locator) : base(webElement, locator) {

@@ -1,9 +1,11 @@
-﻿using OpenQA.Selenium;
+﻿using Core.Models;
+using Core.Models.Pages;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace Core.Models.Pages
+namespace Core.BusinessLogic.PageLogic
 {
-    public static class PageBase
+    public static class PageManager
     {
         public static T OpenPage<T>(string url, IWebDriver driver) where T : Page
         {

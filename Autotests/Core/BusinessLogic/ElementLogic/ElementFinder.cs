@@ -1,6 +1,7 @@
-﻿using OpenQA.Selenium;
+﻿using Core.Models.WebElements;
+using OpenQA.Selenium;
 
-namespace Core.Elements
+namespace Core.BusinessLogic.ElementLogic
 {
     public static class ElementFinder
     {

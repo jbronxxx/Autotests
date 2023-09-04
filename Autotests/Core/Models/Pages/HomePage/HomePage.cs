@@ -1,10 +1,8 @@
-﻿using Core.Elements;
-using Core.Models.Pages;
+﻿using Core.BusinessLogic.ElementLogic;
 using OpenQA.Selenium;
 
-namespace Models.Pages.HomePage
-{
-    public class HomePage : Page {
+namespace Core.Models.Pages.HomePage {
+	public class HomePage : Page {
 		public HomePage(string url, IWebDriver driver) : base(url, driver) {
 		}
 

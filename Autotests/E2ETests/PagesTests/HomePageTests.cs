@@ -1,7 +1,7 @@
 using Core;
-using Core.Models.Pages;
-using Models.Pages.HomePage;
-using Models.Urls;
+using Core.BusinessLogic.PageLogic;
+using Core.Models.Pages.HomePage;
+using Core.Models.Urls;
 
 namespace E2ETests.PagesTests
 {
@@ -10,7 +10,7 @@ namespace E2ETests.PagesTests
         HomePage _homePage;
         [SetUp]
         public void Setup(){
-			_homePage = PageBase.OpenPage<HomePage>(Urls.HOME_PAGE_URL, DriverBase.GetDriver());
+			_homePage = PageManager.OpenPage<HomePage>(Urls.HOME_PAGE_URL, DriverBase.GetDriver());
 		}
 
         [Test]
