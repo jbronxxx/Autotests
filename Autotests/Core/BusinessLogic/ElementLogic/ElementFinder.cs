@@ -1,31 +1,27 @@
 ﻿using Core.Models.WebElements;
 using OpenQA.Selenium;
 
-namespace Core.BusinessLogic.ElementLogic
-{
-    public static class ElementFinder
-    {
-        public static TElement FindElement<TElement>(By by) where TElement : ElementBase
-        {
-            IWebElement element = DriverBase.GetDriver().FindElement(by);
-            ElementBase elementBase = new ElementBase(element, by);
-            return (TElement)elementBase;
-        }
+namespace Core.BusinessLogic.ElementLogic {
+	public static class ElementFinder {
+		public static TElement FindElement<TElement>(IWebDriver driver, By by) where TElement : ElementBase {
+			var foundElement = driver.FindElement(by);
+			return CreateFromElement<TElement>(foundElement, by);
+		}
 
-        public static List<TElement> FindElements<TElement>(By by) where TElement : ElementBase
-        {
-            IReadOnlyCollection<IWebElement> elements = DriverBase.GetDriver().FindElements(by);
-            var elementBases = new List<ElementBase>();
-            var tElements = new List<TElement>();
-            foreach (IWebElement elementElement in elements)
-            {
-                elementBases.Add(new ElementBase(elementElement, by));
-            }
-            foreach (TElement element in elementBases)
-            {
-                tElements.Add(element);
-            }
-            return tElements;
-        }
-    }
+		public static List<TElement> FindElements<TElement>(IWebDriver driver, By by) where TElement : ElementBase {
+			IReadOnlyCollection<IWebElement> foundElements = driver.FindElements(by);
+			return CreateFromElements<TElement>(foundElements, by);
+		}
+
+		private static TElement CreateFromElement<TElement>(IWebElement foundElement, By by) where TElement : ElementBase =>
+			(TElement)Activator.CreateInstance(typeof(TElement), foundElement, by);
+
+		private static List<TElement> CreateFromElements<TElement>(IReadOnlyCollection<IWebElement> foundElements, By by) where TElement : ElementBase {
+			var resultList = new List<TElement>();
+			foreach(IWebElement foundElement in foundElements) {
+				resultList.Add((TElement)Activator.CreateInstance(typeof(TElement), foundElement, by));
+			}
+			return resultList;
+		}
+	}
 }

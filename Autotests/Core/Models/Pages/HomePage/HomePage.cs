@@ -19,10 +19,12 @@ namespace Core.Models.Pages.HomePage {
 			selectItem?.Click();
 		}
 
+		public bool IsNavBarVisible => FindNavigationBar.WebElement.Displayed;
+
 		#region Search elements
 
 		private HomePageNavigationBar FindNavigationBar =>
-			ElementFinder.FindElement<HomePageNavigationBar>(By.XPath(NAVIGATION_BAR));
+			ElementFinder.FindElement<HomePageNavigationBar>(Driver, By.XPath(NAVIGATION_BAR));
 
 		#endregion
 
