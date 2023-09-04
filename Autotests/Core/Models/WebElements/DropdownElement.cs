@@ -2,7 +2,7 @@
 
 namespace Core.Models.WebElements {
 	public class DropdownElement : ElementBase {
-		public DropdownElement(IWebElement wrappedElement, By locator) : base(wrappedElement, locator) {
+		public DropdownElement(IWebDriver driver, IWebElement wrappedElement, By locator) : base(driver, wrappedElement, locator) {
 		}
 
 		public string Text => WebElement.Text;
