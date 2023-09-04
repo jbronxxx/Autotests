@@ -1,9 +1,10 @@
-﻿using OpenQA.Selenium;
+﻿using Core.Models;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 
-namespace BusinessLogic {
-	public class DriverBase {
-		public IWebDriver GetDriver() {
+namespace Core {
+	public static class DriverBase {
+		public static IWebDriver GetDriver() {
 			IWebDriver driver = new EdgeDriver();
 			driver.Manage().Window.Maximize();
 			driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Waits.IMPLICIT_WAIT);
