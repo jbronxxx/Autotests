@@ -4,20 +4,24 @@ using OpenQA.Selenium;
 
 namespace Core.Models.Pages.HomePage {
 	public class HomePageNavigationBar : ElementBase {
+		private IWebDriver _driver;
+
 		public HomePageNavigationBar(IWebElement webElement, By locator) : base(webElement, locator) {
 		}
 
-		private Page Page { get; set; }
+		public HomePageNavigationBar(IWebDriver driver, IWebElement webElement, By locator) : base(driver, webElement, locator) {
+			_driver = driver;
+		}
 
 		#region Search elements
 
-		public ReadOnlyElement NasiyaLogo => ElementFinder.FindElement<ReadOnlyElement>(Page.Driver, By.XPath(NASIYA_LOGO));
+		public ReadOnlyElement NasiyaLogo => ElementFinder.FindElement<ReadOnlyElement>(_driver, By.XPath(NASIYA_LOGO));
 
-		public DropdownElement LanguageSelectButton => ElementFinder.FindElement<DropdownElement>(Page.Driver, By.XPath(LANGUAGE_BUTTON));
+		public DropdownElement LanguageSelectButton => ElementFinder.FindElement<DropdownElement>(_driver, By.XPath(LANGUAGE_BUTTON));
 
-		public List<ButtonElement> LanguageMenuItems => ElementFinder.FindElements<ButtonElement>(Page.Driver, By.XPath(LANGUAGE_ITEM));
+		public List<ButtonElement> LanguageMenuItems => ElementFinder.FindElements<ButtonElement>(_driver, By.XPath(LANGUAGE_ITEM));
 
-		public ReadOnlyElement AppDownloadLink => ElementFinder.FindElement<ReadOnlyElement>(Page.Driver, By.XPath(DOWNLOAD_APP_LINK));
+		public ReadOnlyElement AppDownloadLink => ElementFinder.FindElement<ReadOnlyElement>(_driver, By.XPath(DOWNLOAD_APP_LINK));
 
 		#endregion
 

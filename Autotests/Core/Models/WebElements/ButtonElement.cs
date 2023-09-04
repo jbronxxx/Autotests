@@ -2,7 +2,7 @@
 
 namespace Core.Models.WebElements {
 	public class ButtonElement : ElementBase {
-		public ButtonElement(IWebElement wrappedElement, By locator) : base(wrappedElement, locator) {
+		public ButtonElement(IWebDriver driver, IWebElement wrappedElement, By locator) : base(driver, wrappedElement, locator) {
 		}
 
 		public string Text => WebElement.Text;

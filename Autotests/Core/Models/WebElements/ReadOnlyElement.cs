@@ -2,7 +2,7 @@
 
 namespace Core.Models.WebElements {
 	public class ReadOnlyElement : ElementBase {
-		public ReadOnlyElement(IWebElement wrappedElement, By locator) : base(wrappedElement, locator) {
+		public ReadOnlyElement(IWebDriver driver, IWebElement wrappedElement, By locator) : base(driver, wrappedElement, locator) {
 		}
 
 		public string Text => WebElement.Text;
