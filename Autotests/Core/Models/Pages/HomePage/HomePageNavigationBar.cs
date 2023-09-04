@@ -1,21 +1,23 @@
-﻿using Core.Elements;
+﻿using Core.BusinessLogic.ElementLogic;
+using Core.Models.WebElements;
 using OpenQA.Selenium;
 
-namespace Models.Pages.HomePage
-{
-    public class HomePageNavigationBar : ElementBase {
+namespace Core.Models.Pages.HomePage {
+	public class HomePageNavigationBar : ElementBase {
 		public HomePageNavigationBar(IWebElement webElement, By locator) : base(webElement, locator) {
 		}
-		
+
+		private Page Page { get; set; }
+
 		#region Search elements
 
-		public ReadOnlyElement NasiyaLogo => ElementFinder.FindElement<ReadOnlyElement>(By.XPath(NASIYA_LOGO));
+		public ReadOnlyElement NasiyaLogo => ElementFinder.FindElement<ReadOnlyElement>(Page.Driver, By.XPath(NASIYA_LOGO));
 
-		public DropdownElement LanguageSelectButton => ElementFinder.FindElement<DropdownElement>(By.XPath(LANGUAGE_BUTTON));
+		public DropdownElement LanguageSelectButton => ElementFinder.FindElement<DropdownElement>(Page.Driver, By.XPath(LANGUAGE_BUTTON));
 
-		public List<ButtonElement> LanguageMenuItems => ElementFinder.FindElements<ButtonElement>(By.XPath(LANGUAGE_ITEM));
+		public List<ButtonElement> LanguageMenuItems => ElementFinder.FindElements<ButtonElement>(Page.Driver, By.XPath(LANGUAGE_ITEM));
 
-		public ReadOnlyElement AppDownloadLink => ElementFinder.FindElement<ReadOnlyElement>(By.XPath(DOWNLOAD_APP_LINK));
+		public ReadOnlyElement AppDownloadLink => ElementFinder.FindElement<ReadOnlyElement>(Page.Driver, By.XPath(DOWNLOAD_APP_LINK));
 
 		#endregion
 

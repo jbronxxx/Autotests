@@ -1,12 +1,12 @@
 ﻿using OpenQA.Selenium;
 
-namespace Core.Elements {
+namespace Core.Models.WebElements {
 	public class ReadOnlyElement : ElementBase {
 		public ReadOnlyElement(IWebElement wrappedElement, By locator) : base(wrappedElement, locator) {
 		}
 
-		public string Text => WeElement.Text;
+		public string Text => WebElement.Text;
 
-		public bool Enabled => WeElement.Enabled;
+		public bool Enabled => WebElement.Enabled;
 	}
 }
