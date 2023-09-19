@@ -19,5 +19,9 @@ namespace Core.Models.Pages {
 			Driver.Quit();
 			Driver.Dispose();
 		}
+
+		public void Refresh() {
+			Driver.Navigate().Refresh();
+		}
 	}
 }

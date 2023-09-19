@@ -5,6 +5,7 @@ using Core.Models.Urls;
 
 namespace E2ETests.PagesTests {
 	[TestFixture]
+	[Parallelizable(ParallelScope.All)]
 	public class HomePageTests {
 		HomePage _homePage;
 		[SetUp]
@@ -14,19 +15,19 @@ namespace E2ETests.PagesTests {
 
 		[Test]
 		public void HomePageOpens() {
-			Assert.That(_homePage.IsLogoVisible(), Is.True, "Logo is not found");
+			Assert.That(_homePage.NavigationBar.IsLogoVisible(), Is.True, "Logo is not found");
 		}
 
 		[Test]
 		public void HomePageNavigationBarIsVisible() {
-			Assert.That(_homePage.IsNavBarVisible, Is.True, "Navigation bar is not found");
+			Assert.That(_homePage.IsNavBarVisible(), Is.True, "Navigation bar is not found");
 		}
 
 		[Test]
 		public void ChangeHomePageLanguage() {
 			var linkText = "Скачать приложение";
-			_homePage.ChangeLanguage("RU");
-			Assert.That(_homePage.DownloadLinkText, Is.EqualTo(linkText), "Link's text is not expected");
+			_homePage.NavigationBar.ChangeLanguage("RU");
+			Assert.That(_homePage.NavigationBar.DownloadLinkText, Is.EqualTo(linkText), "Link's text is not expected");
 		}
 
 		[TearDown]
