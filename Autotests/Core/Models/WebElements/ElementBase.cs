@@ -8,12 +8,6 @@ namespace Core.Models.WebElements {
 
 		public IWebElement WebElement { get; }
 
-
-		public ElementBase(IWebElement webElement, By locator) {
-			WebElement = webElement;
-			Locator = locator;
-		}
-
 		public ElementBase(IWebDriver driver, IWebElement webElement, By locator) {
 			Driver = driver;
 			WebElement = webElement;
