@@ -2,11 +2,11 @@
 
 namespace Core.Models.Pages {
 	public class Page {
-		public IWebDriver Driver { get; set; }
-
 		public string Title { get; set; }
 
 		public string Url { get; set; }
+
+		public IWebDriver Driver { get; set; }
 
 		public Page(string url, IWebDriver driver) {
 			Driver = driver;
