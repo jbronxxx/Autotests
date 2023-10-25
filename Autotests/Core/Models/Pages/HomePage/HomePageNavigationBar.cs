@@ -42,7 +42,7 @@ namespace Core.Models.Pages.HomePage {
 		private const string XPATH_NASIYA_LOGO = "//div[@class='flex items-center ml-8']//a[@class='router-link-active router-link-exact-active']";
 		private const string XPATH_LANGUAGE_BUTTON = "//button[@id='languageDropdownMenuTrigger']";
 		private const string XPATH_LANGUAGE_ITEM = "//a[@role='menuitem']";
-		private const string XPATH_DOWNLOAD_APP_LINK = "//a[@href='https://onelink.to/awxvfn']";
+		private const string XPATH_DOWNLOAD_APP_LINK = "//a[@href='https://nasiya.go.link/?adj_t=14szdiyx']";
 		private const string XPATH_NAVBAR_DROPDOWN = "//button[@id='dropdownNavbarTrigger']";
 
 		#endregion
