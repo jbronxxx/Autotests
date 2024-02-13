@@ -4,7 +4,7 @@ using OpenQA.Selenium;
 
 namespace Core.Models.Pages.HomePage {
 	public class HomePageNavigationBar : ElementBase {
-		private IWebDriver _driver;
+		private readonly IWebDriver _driver;
 
 		public HomePageNavigationBar(IWebDriver driver, IWebElement webElement, By locator) : base(driver, webElement, locator) {
 			_driver = driver;
@@ -14,6 +14,7 @@ namespace Core.Models.Pages.HomePage {
 
 		public bool IsLogoVisible() => NasiyaLogo.Enabled;
 
+		//TODO: Add waiting on clicks
 		public void ChangeLanguage(string lang) {
 			LanguageSelectDropdown.Click();
 			var selectItem = LanguageMenuItems.FirstOrDefault(e => e.Text == lang);
