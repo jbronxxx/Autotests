@@ -2,14 +2,26 @@
 using OpenQA.Selenium;
 
 namespace Core.BusinessLogic.ElementLogic {
-	public static class ElementFinder {
+    public static class ElementFinder {
+		//Create a check if element exist class
 		public static TElement FindElement<TElement>(IWebDriver driver, By by) where TElement : ElementBase {
-			var foundElement = driver.FindElement(by);
-			return CreateFromElement<TElement>(foundElement, by, driver);
-		}
+			IWebElement foundElement;
+            try {
+                foundElement = driver.FindElement(by);
+            } catch(Exception) {
+				throw new NotFoundException("Element is not found");
+			}
+            return CreateFromElement<TElement>(foundElement, by, driver);
 
-		public static List<TElement> FindElements<TElement>(IWebDriver driver, By by, bool isDriverNeed = false) where TElement : ElementBase {
-			IReadOnlyCollection<IWebElement> foundElements = driver.FindElements(by);
+        }
+
+		public static List<TElement> FindElements<TElement>(IWebDriver driver, By by) where TElement : ElementBase {
+			IReadOnlyCollection<IWebElement> foundElements;
+            try {
+                foundElements = driver.FindElements(by);
+            } catch(Exception) {
+                throw new NotFoundException("Elements are not found");
+            }
 			return CreateFromElements<TElement>(foundElements, by, driver);
 		}
 
@@ -25,6 +37,6 @@ namespace Core.BusinessLogic.ElementLogic {
 				resultList.Add((TElement)Activator.CreateInstance(typeof(TElement), driver, foundElement, by));
 			}
 			return resultList;
-		}
+        }
 	}
 }
