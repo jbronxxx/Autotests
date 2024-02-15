@@ -3,9 +3,14 @@ using OpenQA.Selenium;
 
 namespace Core.Models.Pages.HomePage {
 	public class HomePage : Page {
+        private const string URL = "https://uzumnasiya.uz/";
+
+        public static string Url { get { return URL; } }
+
 		public HomePageNavigationBar NavigationBar => FindNavigationBar;
 
-		public HomePage(string url, IWebDriver driver) : base(url, driver) {
+		public HomePage(IWebDriver driver) : base(driver) {
+			driver.Url = Url;
 		}
 
 		public bool IsNavBarVisible() => FindNavigationBar.WebElement.Displayed;
@@ -19,7 +24,7 @@ namespace Core.Models.Pages.HomePage {
 
 		#region Locators
 
-		private const string XPATH_NAVIGATION_BAR = "//nav[@class='z-[1000] fixed w-full backdrop-blur-[22px] top-0 left-0']";
+		private const string XPATH_NAVIGATION_BAR = "//div[@class='u-container flex items-center justify-between']";
 
 		#endregion
 	}

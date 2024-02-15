@@ -40,8 +40,8 @@ namespace Core.Models.Pages.HomePage {
 
 		#region Locators
 
-		private const string XPATH_NASIYA_LOGO = "//div[@class='flex items-center ml-8']//a[@class='router-link-active router-link-exact-active']";
-		private const string XPATH_LANGUAGE_BUTTON = "//button[@id='languageDropdownMenuTrigger']";
+		private const string XPATH_NASIYA_LOGO = "//div[@class='flex']//a[@class='router-link-active router-link-exact-active']";
+		private const string XPATH_LANGUAGE_BUTTON = "//button[@data-dropdown-toggle='languagePicker']";
 		private const string XPATH_LANGUAGE_ITEM = "//a[@role='menuitem']";
 		private const string XPATH_DOWNLOAD_APP_LINK = "//a[@href='https://nasiya.go.link/?adj_t=14szdiyx']";
 		private const string XPATH_NAVBAR_DROPDOWN = "//button[@id='dropdownNavbarTrigger']";
