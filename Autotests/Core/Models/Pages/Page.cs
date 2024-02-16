@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 
 namespace Core.Models.Pages {
-	public class Page {
+    public class Page {
 		internal string Title { get; set; }
 
 		internal IWebDriver Driver { get; set; }

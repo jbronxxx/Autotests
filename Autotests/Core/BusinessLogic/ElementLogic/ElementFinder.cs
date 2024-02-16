@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 
 namespace Core.BusinessLogic.ElementLogic {
     public static class ElementFinder {
-		//Create a check if element exist class
+		//TODO: Create a check if element exist class
 		public static TElement FindElement<TElement>(IWebDriver driver, By by) where TElement : ElementBase {
 			IWebElement foundElement;
             try {
